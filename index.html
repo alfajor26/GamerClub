@@ -3,32 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gamers Club PRO+</title>
+<title>Gamers Club Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:Arial;background:radial-gradient(circle,#1a0033,#0b0014);color:#e0ccff}
-header{text-align:center;padding:20px}
-.logo{width:200px;filter:drop-shadow(0 0 20px #a200ff)}
-h1{text-shadow:0 0 10px #a200ff}
+body{margin:0;font-family:'Orbitron',sans-serif;background:#0b0014;color:#fff}
+header{padding:30px;text-align:center;background:linear-gradient(90deg,#0b0014,#1a0033)}
+.logo{width:220px;filter:drop-shadow(0 0 15px #a200ff)}
+h1{margin:10px 0;color:#c77dff}
 
-.topbar{display:flex;justify-content:space-between;padding:10px 20px}
-input,select{padding:5px;margin:5px}
+.topbar{display:flex;justify-content:center;gap:10px;padding:10px}
+input,select{padding:8px;border-radius:8px;border:none}
 
-.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px}
-.card{background:#1a0033;border:1px solid #7a00ff;border-radius:15px;padding:15px;transition:.3s}
-.card:hover{transform:scale(1.05);box-shadow:0 0 25px #a200ff}
-.card img{width:100%;border-radius:10px}
-.price{color:#c77dff}
-button{background:linear-gradient(45deg,#6a00ff,#b300ff);border:none;padding:10px;border-radius:10px;color:#fff;cursor:pointer}
+.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;padding:30px}
+.card{background:#120022;border-radius:15px;overflow:hidden;transition:.3s;border:1px solid #2a0055}
+.card:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 0 20px #7a00ff}
+.card img{width:100%;height:160px;object-fit:cover}
+.info{padding:15px}
+.price{color:#c77dff;font-size:18px}
+button{width:100%;padding:10px;border:none;border-radius:10px;background:linear-gradient(45deg,#6a00ff,#b300ff);color:#fff;margin-top:10px;cursor:pointer}
+button:disabled{opacity:.5}
+
+.badge{padding:4px 10px;border-radius:10px;font-size:12px}
+.disponible{background:#00c853}
+.prox{background:#ff9100}
 
 #cart{position:fixed;top:10px;right:10px;background:#1a0033;padding:10px;border-radius:10px}
 .whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:15px;border-radius:50%}
 
-.admin{position:fixed;left:10px;top:60px;background:#1a0033;padding:10px;border-radius:10px;width:250px;display:none}
+.admin{position:fixed;left:10px;top:80px;background:#1a0033;padding:10px;border-radius:10px;width:250px;display:none}
 .dashboard{position:fixed;left:10px;bottom:10px;background:#1a0033;padding:10px;border-radius:10px;width:250px}
-
-.badge{padding:3px 8px;border-radius:8px;font-size:12px}
-.disponible{background:#00c853}
-.prox{background:#ff9100}
 
 </style>
 </head>
@@ -36,7 +39,7 @@ button{background:linear-gradient(45deg,#6a00ff,#b300ff);border:none;padding:10p
 
 <header>
 <img src="logo.png" class="logo">
-<h1>Gamers Club</h1>
+<h1>Gamers Club Store</h1>
 </header>
 
 <div class="topbar">
@@ -57,20 +60,15 @@ button{background:linear-gradient(45deg,#6a00ff,#b300ff);border:none;padding:10p
 <input id="name" placeholder="Nombre">
 <input id="price" placeholder="Precio">
 <input id="img" placeholder="Imagen">
-<select id="category">
-<option>FPS</option><option>Acción</option><option>Aventura</option>
-</select>
-<select id="status">
-<option value="disponible">Disponible</option>
-<option value="proximamente">Próximamente</option>
-</select>
+<select id="category"><option>FPS</option><option>Acción</option><option>Aventura</option></select>
+<select id="status"><option value="disponible">Disponible</option><option value="proximamente">Próximamente</option></select>
 <input id="stock" placeholder="Stock">
 <button onclick="addProduct()">Agregar</button>
 </div>
 
 <div class="dashboard">
 <h4>Dashboard</h4>
-<p>Total juegos: <span id="total"></span></p>
+<p>Total: <span id="total"></span></p>
 <p>Ventas: <span id="ventas"></span></p>
 </div>
 
@@ -80,7 +78,9 @@ button{background:linear-gradient(45deg,#6a00ff,#b300ff);border:none;padding:10p
 
 <script>
 let products=JSON.parse(localStorage.getItem('products'))||[
-{name:"CS2",price:5000,img:"https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",category:"FPS",stock:5,status:"disponible"}
+{name:"Counter Strike 2",price:5000,img:"https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",category:"FPS",stock:5,status:"disponible"},
+{name:"Dota 2",price:5000,img:"https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg",category:"Acción",stock:3,status:"disponible"},
+{name:"Team Fortress 2",price:5000,img:"https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg",category:"FPS",stock:2,status:"proximamente"}
 ];
 
 let cart=[];
@@ -100,13 +100,14 @@ products.filter(p=>p.name.toLowerCase().includes(search))
 cont.innerHTML+=`
 <div class="card">
 <img src="${p.img}">
+<div class="info">
 <h3>${p.name}</h3>
 <p>${p.category}</p>
 <p class="price">$${p.price}</p>
 <p>Stock: ${p.stock}</p>
 <span class="badge ${p.status==='disponible'?'disponible':'prox'}">${p.status}</span>
-<br><br>
 <button ${p.status!=='disponible'||p.stock<=0?'disabled':''} onclick="buy(${i})">Comprar</button>
+</div>
 </div>`;
 });
 
