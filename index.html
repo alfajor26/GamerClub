@@ -4,72 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gamers Club Store</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:'Orbitron',sans-serif;background:#0b0014;color:#fff}
-header{padding:30px;text-align:center;background:linear-gradient(90deg,#0b0014,#1a0033)}
-.logo{width:220px;filter:drop-shadow(0 0 15px #a200ff)}
-h1{margin:10px 0;color:#c77dff}
+body{margin:0;font-family:Arial;background:#0b0014;color:#fff}
+header{background:#120022;padding:15px;text-align:center;border-bottom:2px solid #7a00ff}
+h1{margin:0;color:#c77dff}
 
-.topbar{display:flex;justify-content:center;gap:10px;padding:10px}
-input,select{padding:8px;border-radius:8px;border:none}
+.container{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;padding:20px}
+.card{width:260px;background:#1a0033;border-radius:10px;overflow:hidden;border:1px solid #2a0055;transition:.3s}
+.card:hover{transform:scale(1.05);box-shadow:0 0 15px #7a00ff}
+.card img{width:100%}
+.info{padding:10px;text-align:center}
+.price{color:#c77dff;font-size:18px;margin:5px 0}
+button{background:#6a00ff;border:none;padding:8px 15px;color:#fff;border-radius:5px;cursor:pointer}
 
-.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;padding:30px}
-.card{background:#120022;border-radius:15px;overflow:hidden;transition:.3s;border:1px solid #2a0055}
-.card:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 0 20px #7a00ff}
-.card img{width:100%;height:160px;object-fit:cover}
-.info{padding:15px}
-.price{color:#c77dff;font-size:18px}
-button{width:100%;padding:10px;border:none;border-radius:10px;background:linear-gradient(45deg,#6a00ff,#b300ff);color:#fff;margin-top:10px;cursor:pointer}
-button:disabled{opacity:.5}
-
-.badge{padding:4px 10px;border-radius:10px;font-size:12px}
-.disponible{background:#00c853}
-.prox{background:#ff9100}
+.topbar{text-align:center;margin-top:10px}
+input{padding:6px;width:200px}
 
 #cart{position:fixed;top:10px;right:10px;background:#1a0033;padding:10px;border-radius:10px}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:15px;border-radius:50%}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;padding:15px;border-radius:50%}
 
-.admin{position:fixed;left:10px;top:80px;background:#1a0033;padding:10px;border-radius:10px;width:250px;display:none}
-.dashboard{position:fixed;left:10px;bottom:10px;background:#1a0033;padding:10px;border-radius:10px;width:250px}
+.admin{position:fixed;left:10px;top:80px;background:#1a0033;padding:10px;border-radius:10px;width:220px;display:none}
 
 </style>
 </head>
 <body>
 
 <header>
-<img src="logo.png" class="logo">
 <h1>Gamers Club Store</h1>
 </header>
 
 <div class="topbar">
-<input id="search" placeholder="Buscar juego..." onkeyup="render()">
-<select id="filter" onchange="render()">
-<option value="">Todas</option>
-<option>FPS</option>
-<option>Acción</option>
-<option>Aventura</option>
-</select>
+<input id="search" placeholder="Buscar..." onkeyup="render()">
 <button onclick="login()">Admin</button>
 </div>
 
 <div id="cart">🛒 <span id="cart-count">0</span></div>
 
 <div class="admin" id="adminPanel">
-<h3>Panel Admin</h3>
+<h3>Panel</h3>
 <input id="name" placeholder="Nombre">
 <input id="price" placeholder="Precio">
 <input id="img" placeholder="Imagen">
-<select id="category"><option>FPS</option><option>Acción</option><option>Aventura</option></select>
-<select id="status"><option value="disponible">Disponible</option><option value="proximamente">Próximamente</option></select>
 <input id="stock" placeholder="Stock">
 <button onclick="addProduct()">Agregar</button>
-</div>
-
-<div class="dashboard">
-<h4>Dashboard</h4>
-<p>Total: <span id="total"></span></p>
-<p>Ventas: <span id="ventas"></span></p>
 </div>
 
 <div class="container" id="products"></div>
@@ -78,47 +55,37 @@ button:disabled{opacity:.5}
 
 <script>
 let products=JSON.parse(localStorage.getItem('products'))||[
-{name:"Counter Strike 2",price:5000,img:"https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",category:"FPS",stock:5,status:"disponible"},
-{name:"Dota 2",price:5000,img:"https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg",category:"Acción",stock:3,status:"disponible"},
-{name:"Team Fortress 2",price:5000,img:"https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg",category:"FPS",stock:2,status:"proximamente"}
+{name:"Juego Random",price:5000,img:"https://via.placeholder.com/300x150",stock:10},
+{name:"Pack 3 Juegos",price:10000,img:"https://via.placeholder.com/300x150",stock:5},
+{name:"Pack 10 Juegos",price:20000,img:"https://via.placeholder.com/300x150",stock:2}
 ];
 
 let cart=[];
-let ventas=0;
 
 function save(){localStorage.setItem('products',JSON.stringify(products));}
 
 function render(){
-const cont=document.getElementById('products');
-const search=document.getElementById('search').value.toLowerCase();
-const filter=document.getElementById('filter').value;
+let cont=document.getElementById('products');
+let search=document.getElementById('search').value.toLowerCase();
 cont.innerHTML="";
-
 products.filter(p=>p.name.toLowerCase().includes(search))
-.filter(p=>!filter||p.category===filter)
 .forEach((p,i)=>{
 cont.innerHTML+=`
 <div class="card">
 <img src="${p.img}">
 <div class="info">
 <h3>${p.name}</h3>
-<p>${p.category}</p>
 <p class="price">$${p.price}</p>
 <p>Stock: ${p.stock}</p>
-<span class="badge ${p.status==='disponible'?'disponible':'prox'}">${p.status}</span>
-<button ${p.status!=='disponible'||p.stock<=0?'disabled':''} onclick="buy(${i})">Comprar</button>
+<button onclick="buy(${i})">Comprar</button>
 </div>
 </div>`;
 });
-
-document.getElementById('total').innerText=products.length;
-document.getElementById('ventas').innerText=ventas;
 }
 
 function buy(i){
 if(products[i].stock>0){
 products[i].stock--;
-ventas++;
 cart.push(products[i]);
 document.getElementById('cart-count').innerText=cart.length;
 save();
@@ -131,9 +98,7 @@ products.push({
 name:name.value,
 price:parseInt(price.value),
 img:img.value,
-category:category.value,
-stock:parseInt(stock.value),
-status:status.value
+stock:parseInt(stock.value)
 });
 save();
 render();
@@ -146,7 +111,7 @@ window.open(`https://wa.me/1234567890?text=${msg}`);
 }
 
 function login(){
-let pass=prompt("Contraseña admin:");
+let pass=prompt("Contraseña:");
 if(pass==="1234"){
 document.getElementById('adminPanel').style.display='block';
 }
