@@ -5,120 +5,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gamers Club Store</title>
 <style>
-body{margin:0;font-family:Arial;background:#0b0014;color:#fff}
-header{background:#120022;padding:15px;text-align:center;border-bottom:2px solid #7a00ff}
-h1{margin:0;color:#c77dff}
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0e0e0e;
+  color:white;
+}
 
-.container{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;padding:20px}
-.card{width:260px;background:#1a0033;border-radius:10px;overflow:hidden;border:1px solid #2a0055;transition:.3s}
-.card:hover{transform:scale(1.05);box-shadow:0 0 15px #7a00ff}
-.card img{width:100%}
-.info{padding:10px;text-align:center}
-.price{color:#c77dff;font-size:18px;margin:5px 0}
-button{background:#6a00ff;border:none;padding:8px 15px;color:#fff;border-radius:5px;cursor:pointer}
+header{
+  text-align:center;
+  padding:20px;
+}
 
-.topbar{text-align:center;margin-top:10px}
-input{padding:6px;width:200px}
+h1{
+  font-size:28px;
+  margin:0;
+}
 
-#cart{position:fixed;top:10px;right:10px;background:#1a0033;padding:10px;border-radius:10px}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;padding:15px;border-radius:50%}
+.container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  padding:20px;
+}
 
-.admin{position:fixed;left:10px;top:80px;background:#1a0033;padding:10px;border-radius:10px;width:220px;display:none}
+.card{
+  width:220px;
+  background:#1a1a1a;
+  border-radius:8px;
+  overflow:hidden;
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+}
+
+.info{
+  padding:10px;
+}
+
+.price{
+  color:#00ff88;
+  font-weight:bold;
+}
+
+button{
+  background:#00ff88;
+  border:none;
+  padding:8px 12px;
+  border-radius:5px;
+  cursor:pointer;
+  margin-top:5px;
+}
 
 </style>
 </head>
 <body>
 
 <header>
-<h1>Gamers Club Store</h1>
+<h1>CATÁLOGO DE JUEGOS</h1>
+<p>Elegí tu pack</p>
 </header>
 
-<div class="topbar">
-<input id="search" placeholder="Buscar..." onkeyup="render()">
-<button onclick="login()">Admin</button>
-</div>
+<div class="container">
 
-<div id="cart">🛒 <span id="cart-count">0</span></div>
-
-<div class="admin" id="adminPanel">
-<h3>Panel</h3>
-<input id="name" placeholder="Nombre">
-<input id="price" placeholder="Precio">
-<input id="img" placeholder="Imagen">
-<input id="stock" placeholder="Stock">
-<button onclick="addProduct()">Agregar</button>
-</div>
-
-<div class="container" id="products"></div>
-
-<a class="whatsapp" onclick="sendWhatsApp()">💬</a>
-
-<script>
-let products=JSON.parse(localStorage.getItem('products'))||[
-{name:"Juego Random",price:5000,img:"https://via.placeholder.com/300x150",stock:10},
-{name:"Pack 3 Juegos",price:10000,img:"https://via.placeholder.com/300x150",stock:5},
-{name:"Pack 10 Juegos",price:20000,img:"https://via.placeholder.com/300x150",stock:2}
-];
-
-let cart=[];
-
-function save(){localStorage.setItem('products',JSON.stringify(products));}
-
-function render(){
-let cont=document.getElementById('products');
-let search=document.getElementById('search').value.toLowerCase();
-cont.innerHTML="";
-products.filter(p=>p.name.toLowerCase().includes(search))
-.forEach((p,i)=>{
-cont.innerHTML+=`
 <div class="card">
-<img src="${p.img}">
+<img src="https://via.placeholder.com/220x120">
 <div class="info">
-<h3>${p.name}</h3>
-<p class="price">$${p.price}</p>
-<p>Stock: ${p.stock}</p>
-<button onclick="buy(${i})">Comprar</button>
+<h3>1 Juego Random</h3>
+<p class="price">$5000</p>
+<button>Comprar</button>
 </div>
-</div>`;
-});
-}
+</div>
 
-function buy(i){
-if(products[i].stock>0){
-products[i].stock--;
-cart.push(products[i]);
-document.getElementById('cart-count').innerText=cart.length;
-save();
-render();
-}
-}
+<div class="card">
+<img src="https://via.placeholder.com/220x120">
+<div class="info">
+<h3>3 Juegos Random</h3>
+<p class="price">$10000</p>
+<button>Comprar</button>
+</div>
+</div>
 
-function addProduct(){
-products.push({
-name:name.value,
-price:parseInt(price.value),
-img:img.value,
-stock:parseInt(stock.value)
-});
-save();
-render();
-}
+<div class="card">
+<img src="https://via.placeholder.com/220x120">
+<div class="info">
+<h3>10 Juegos Random</h3>
+<p class="price">$20000</p>
+<button>Comprar</button>
+</div>
+</div>
 
-function sendWhatsApp(){
-let msg="Hola quiero comprar:%0A";
-cart.forEach(p=>msg+=`- ${p.name} ($${p.price})%0A`);
-window.open(`https://wa.me/1234567890?text=${msg}`);
-}
-
-function login(){
-let pass=prompt("Contraseña:");
-if(pass==="1234"){
-document.getElementById('adminPanel').style.display='block';
-}
-}
-
-render();
-</script>
+</div>
 
 </body>
 </html>
