@@ -128,3 +128,8 @@
   color: #c084fc;
   text-shadow: 0 0 10px rgba(168, 85, 247, 0.7);
 }
+.logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+}
