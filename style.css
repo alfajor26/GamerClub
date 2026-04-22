@@ -105,4 +105,13 @@
   width: 100% !important;
   text-align: center !important;
 }
+.hero-price-banner {
+  color: #c084fc;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.7);
+  font-weight: bold;
+}
+.hero-price-banner {
+  background: rgba(40, 0, 80, 0.4);
+  padding: 10px;
+  border-radius: 10px;
 }
