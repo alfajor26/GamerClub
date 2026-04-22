@@ -129,3 +129,26 @@
 .logo img {
   height: 120px;
 }
+@media (max-width: 768px) {
+
+  .header-top {
+    justify-content: center; /* centra en celular */
+    padding-left: 0;
+  }
+
+  .logo {
+    flex-direction: column; /* logo arriba, texto abajo */
+    gap: 10px;
+    text-align: center;
+  }
+
+  .logo img {
+    height: 80px; /* más chico */
+  }
+
+  .logo h1 {
+    font-size: 2rem; /* texto más chico */
+    letter-spacing: 2px;
+  }
+
+}
