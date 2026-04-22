@@ -24,12 +24,14 @@
   text-shadow: 0 0 10px rgba(162, 0, 255, 0.8);
 }
 .logo h1 {
-  font-size: 32px;
+  font-size: 38px;             
+  letter-spacing: 5px;          
   font-family: 'Orbitron', sans-serif;
   color: #d6b3ff;
   text-shadow: 
     0 0 10px rgba(162, 0, 255, 0.8),
     0 0 20px rgba(162, 0, 255, 0.6);
+}
 }
 .header-top {
   display: flex;
