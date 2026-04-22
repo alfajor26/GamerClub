@@ -100,4 +100,9 @@
   width: 100%;
   text-align: center;
 }
+.hero-price-banner {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
 }
