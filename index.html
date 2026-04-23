@@ -1656,7 +1656,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           juegosSeleccionados.forEach((nombre, appid) => {
               list.innerHTML += `
               <div class="cart-item">
-                  <div style="display:flex; flex-direction:column; gap:4px; flex:1; overflow:hidden;">
+                  <div class="cart-info">
                       <span class="cart-item-name">${esc(nombre)}</span>
                       <span class="appid-tag" onclick="copiarAppID('${appid}', event)">#${appid}</span>
                   </div>
