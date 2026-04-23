@@ -1959,5 +1959,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     cargar();
   });
 </script>
+<script id="btn-todos">
+document.querySelectorAll('.filtro-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
 
+    const categoria = btn.dataset.categoria;
+
+    document.querySelectorAll('.juego').forEach(juego => {
+      if (categoria === 'todos' || juego.dataset.categoria === categoria) {
+        juego.style.display = 'block';
+      } else {
+        juego.style.display = 'none';
+      }
+    });
+
+  });
+});
+</script>
+ 
 </body></html>
