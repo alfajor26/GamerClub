@@ -253,3 +253,6 @@ html {
   }
 
 }
+.juego {
+  transition: 0.3s;
+}
