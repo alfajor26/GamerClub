@@ -1976,5 +1976,54 @@ document.querySelectorAll('.filtro-btn').forEach(btn => {
   });
 });
 </script>
- 
+ <script>
+function generarMensaje() {
+  let mensaje = "Hola! Quiero comprar:\n\n";
+
+  juegosSeleccionados.forEach((nombre, appid) => {
+    mensaje += `🎮 ${nombre} (ID: ${appid})\n`;
+  });
+
+  mensaje += "\nGracias!";
+
+  return mensaje;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const botonIG = document.querySelector('[data-i18n="btn_ig"]');
+
+  if (botonIG) {
+    botonIG.addEventListener("click", function () {
+      const mensaje = generarMensaje();
+
+      navigator.clipboard.writeText(mensaje);
+
+      alert("Mensaje copiado 👌 Pegalo en Instagram");
+    });
+  }
+});
+</script>
+ <script>
+function generarMensaje() {
+  let mensaje = "Hola! Quiero comprar:\n\n";
+
+  juegosSeleccionados.forEach((nombre, appid) => {
+    mensaje += `🎮 ${nombre} (ID: ${appid})\n`;
+  });
+
+  mensaje += "\nGracias!";
+
+  return mensaje;
+}
+
+function enviarInstagram() {
+  const mensaje = generarMensaje();
+
+  navigator.clipboard.writeText(mensaje);
+
+  alert("Mensaje copiado 👌 Ahora pegalo en Instagram");
+
+  window.open("https://www.instagram.com/direct/inbox/", "_blank");
+}
+</script>
 </body></html>
