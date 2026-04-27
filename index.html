@@ -1970,7 +1970,6 @@ document.getElementById('btn-open-ig').href =
           navigator.clipboard.writeText(txt).then(() => document.getElementById('modal-conversion').classList.add('show'))
           .catch(() => fallbackCopiarLista(txt));
       } else { fallbackCopiarLista(txt); }
-  }
   
   function fallbackCopiarLista(txt) {
       try {
