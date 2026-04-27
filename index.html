@@ -1957,203 +1957,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   return txt;
 }
-  <script>    
-   function enviarWhatsApp() {
-  const mensaje = generarMensaje(); // 👈 genera todo
-  const numero = "5491170813030";
-
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
-    }
  <script>
-document.getElementById('btn-open-wa').href =
-  `https://api.whatsapp.com/send?phone=${TU_NUMERO_WA}&text=${encodedMsg}`;
 
-document.getElementById('btn-open-ig').href =
-  `https://ig.me/m/${TU_USUARIO_IG}`;
-      
-      if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(txt).then(() => document.getElementById('modal-conversion').classList.add('show'))
-          .catch(() => fallbackCopiarLista(txt));
-      } else { fallbackCopiarLista(txt); }
-  
-  function fallbackCopiarLista(txt) {
-      try {
-          const t = document.createElement("textarea"); t.value = txt; t.style.position = "fixed"; t.style.opacity = "0";
-          document.body.appendChild(t); t.focus(); t.select();
-          document.execCommand('copy'); document.body.removeChild(t);
-          document.getElementById('modal-conversion').classList.add('show');
-      } catch (err) { window.prompt("Copia pedido:", txt); document.getElementById('modal-conversion').classList.add('show'); }
-  }
-  
-  function cerrarModalConversion() { document.getElementById('modal-conversion').classList.remove('show'); }
-
-  // Listeners Interfaz
-  document.getElementById('sortSelect').addEventListener('change', e => { sortBy = e.target.value; aplicarFiltros(); });
-  document.getElementById('catSelect').addEventListener('change', e => { catActiva = e.target.value; aplicarFiltros(); });
-  document.getElementById('buscador').addEventListener('input', e => {
-    clearTimeout(searchTimer); searchTimer = setTimeout(() => { queryActual = e.target.value; aplicarFiltros(); }, 250);
-  });
-  document.getElementById('filters').addEventListener('click', e => {
-    if (!e.target.closest('.filter-btn')) return;
-    document.querySelectorAll('#filters .filter-btn').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active'); filtroActivo = e.target.dataset.filter; aplicarFiltros();
-  });
-
-  window.addEventListener('scroll', () => {
-    const st = document.getElementById('scrollTop');
-    if (window.scrollY > 400) st.classList.add('visible'); else st.classList.remove('visible');
-    if (cargandoMas || paginaActual * PAGE_SIZE >= filtrados.length) return;
-    if (window.scrollY + window.innerHeight > document.documentElement.scrollHeight - 800) {
-      cargandoMas = true; setTimeout(() => { renderPagina(); cargandoMas = false; }, 50);
-    }
-  });
-
-  function esc(s) { return String(s || "").replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  function mostrarVacio(titulo, sub) { document.getElementById('grid').innerHTML = `<div class="state-msg"><div class="icon">🎮</div><h3>${titulo}</h3><p>${sub}</p></div>`; document.getElementById('counter').innerHTML = ''; }
-
-  // Init
-  window.addEventListener('DOMContentLoaded', () => {
-    applyLanguage(); cargarCarrito();
-    const params = new URLSearchParams(window.location.search);
-    if (params.has('q')) { queryActual = params.get('q'); document.getElementById('buscador').value = queryActual; }
-    cargar();
-  });
-    function enviarWhatsApp() {
-  const mensaje = generarMensaje();
-  const numero = "5491170813030";
-
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
-}
-<script>
-document.querySelectorAll('.filtro-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-
-    const categoria = btn.dataset.categoria;
-
-    document.querySelectorAll('.juego').forEach(juego => {
-      if (categoria === 'todos' || juego.dataset.categoria === categoria) {
-        juego.style.display = 'block';
-      } else {
-        juego.style.display = 'none';
-      }
-    });
-
-  });
-});
-</script>
- <script>
-function generarMensaje() {
-  let mensaje = "Hola! Quiero comprar:\n\n";
-
-  juegosSeleccionados.forEach((nombre, appid) => {
-    mensaje += `🎮 ${nombre} (ID: ${appid})\n`;
-  });
-
-  mensaje += "\nGracias!";
-
-  return mensaje;
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const botonIG = document.querySelector('[data-i18n="btn_ig"]');
-
-  if (botonIG) {
-    botonIG.addEventListener("click", function () {
-      const mensaje = generarMensaje();
-
-      navigator.clipboard.writeText(mensaje);
-
-      alert("Mensaje copiado 👌 Pegalo en Instagram");
-    });
-  }
-});
-</script>
- <script>
-function generarMensaje() {
-  let mensaje = "Hola! Quiero comprar:\n\n";
-
-  juegosSeleccionados.forEach((nombre, appid) => {
-    mensaje += `🎮 ${nombre} (ID: ${appid})\n`;
-  });
-
-  mensaje += "\nGracias!";
-
-  return mensaje;
-}
-
-function enviarInstagram() {
-  const mensaje = generarMensaje();
-
-  navigator.clipboard.writeText(mensaje);
-
-  alert("Mensaje copiado 👌 Ahora pegalo en Instagram");
-
-  window.open("https://www.instagram.com/direct/inbox/", "_blank");
-}
-function generarMensaje() {
-  let mensaje = "🛒 *Pedido GamerClub*\n\n";
-
-  juegosSeleccionados.forEach((nombre, appid) => {
-    mensaje += `🎮 ${nombre}\n🆔 ID: ${appid}\n\n`;
-  });
-
-  mensaje += "💬 Quedo a la espera de confirmación.\nGracias!";
-
-  return mensaje;
-}
-</script>
- <script>
-function generarMensaje() {
-  let mensaje = "🛒 *Pedido GamerClub*\n\n";
-  let cantidad = juegosSeleccionados.size;
-
-  // LISTA DE JUEGOS
-  juegosSeleccionados.forEach((nombre) => {
-    mensaje += `🎮 ${nombre}\n`;
-  });
-
-  mensaje += "\n";
-
-  // CALCULAR TOTAL
-  let total = 0;
-  let promo = "";
-
-  if (cantidad >= 10) {
-    total = 25000;
-    promo = "🔥 Promo 10 juegos";
-  } else if (cantidad >= 3) {
-    total = 12000;
-    promo = "🔥 Promo 3 juegos";
-  } else {
-    total = cantidad * 5000;
-    promo = "Compra individual";
-  }
-
-  // CALCULAR AHORRO
-  let precioNormal = cantidad * 5000;
-  let ahorro = precioNormal - total;
-
-  // MENSAJE FINAL
-  mensaje += `💰 ${promo}\n`;
-  mensaje += `💵 Total: $${total}\n`;
-
-  if (ahorro > 0) {
-    mensaje += `💸 Ahorrás: $${ahorro}\n`;
-  }
-
-  mensaje += "\n💬 Quedo a la espera de confirmación.\nGracias!";
-
-  return mensaje;
-}
-</script>
- <script>
+// ===== MENSAJE =====
 function generarNumeroPedido() {
   const fecha = new Date();
-  const tiempo = fecha.getTime().toString().slice(-5);
-  const random = Math.floor(Math.random() * 100);
-  return `GC-${tiempo}${random}`;
+  return "GC-" + fecha.getTime().toString().slice(-6);
 }
 
 function obtenerHora() {
@@ -2165,22 +1974,18 @@ function generarMensaje() {
   let pedido = generarNumeroPedido();
   let cantidad = juegosSeleccionados.size;
 
-  let nombre = document.getElementById("nombreCliente").value || "Sin nombre";
+  let nombre = document.getElementById("nombreCliente")?.value || "Sin nombre";
 
-  let mensaje = `🧾 *Pedido GamerClub*\n`;
+  let mensaje = `🧾 Pedido GamerClub\n`;
   mensaje += `📦 Pedido: #${pedido}\n`;
   mensaje += `👤 Cliente: ${nombre}\n`;
   mensaje += `🕒 Hora: ${obtenerHora()}\n`;
   mensaje += `💳 Pago: Transferencia\n\n`;
 
-  // LISTA DE JUEGOS
   juegosSeleccionados.forEach((nombreJuego) => {
     mensaje += `🎮 ${nombreJuego}\n`;
   });
 
-  mensaje += "\n";
-
-  // PROMOS
   let total = 0;
   let promo = "";
 
@@ -2195,11 +2000,9 @@ function generarMensaje() {
     promo = "Compra individual";
   }
 
-  let precioNormal = cantidad * 5000;
-  let ahorro = precioNormal - total;
+  let ahorro = (cantidad * 5000) - total;
 
-  // RESUMEN
-  mensaje += `📊 Cantidad: ${cantidad}\n`;
+  mensaje += `\n📊 Cantidad: ${cantidad}\n`;
   mensaje += `💰 ${promo}\n`;
   mensaje += `💵 Total: $${total}\n`;
 
@@ -2207,8 +2010,28 @@ function generarMensaje() {
     mensaje += `💸 Ahorrás: $${ahorro}\n`;
   }
 
-  mensaje += "\n💬 Quedo a la espera de confirmación.\nGracias!";
+  mensaje += `\n💬 Quedo a la espera de confirmación.`;
 
   return mensaje;
 }
-</body></html>
+
+// ===== WHATSAPP =====
+function enviarWhatsApp() {
+  const mensaje = generarMensaje();
+  const numero = "5491170813030";
+
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+}
+
+// ===== INSTAGRAM =====
+function enviarInstagram() {
+  const mensaje = generarMensaje();
+
+  navigator.clipboard.writeText(mensaje);
+  alert("Mensaje copiado 👌 Pegalo en Instagram");
+
+  window.open("https://www.instagram.com/direct/inbox/", "_blank");
+}
+
+</script>
