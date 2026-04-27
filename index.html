@@ -1911,10 +1911,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       } catch (err) { window.prompt("Copia manualmente:", text); }
   }
 
+
+  return txt;
+}
 function generarMensaje() {
 
   if (juegosSeleccionados.size === 0) {
-    return "Hola! Quiero comprar juegos pero aún no seleccioné ninguno.";
+    return "Hola! No seleccionaste juegos.";
   }
 
   const numeroPedido = "GC-" + Date.now().toString().slice(-6);
@@ -1924,115 +1927,26 @@ function generarMensaje() {
   const cantidad = juegos.length;
 
   let total = cantidad * 5000;
-  let promo = "Sin promo";
+  let promo = "Compra individual";
   let ahorro = 0;
-
-  if (cantidad >= 10) {
-    total = 25000;
-    promo = "Promo 10 juegos";
-    ahorro = (cantidad * 5000) - total;
-  } else if (cantidad >= 3) {
-    total = 12000;
-    promo = "Promo 3 juegos";
-    ahorro = (cantidad * 5000) - total;
-  }
-
-  let txt = `🎮 Pedido GamerClub\n\n`;
-  txt += `📦 Pedido: ${numeroPedido}\n`;
-  txt += `📅 Fecha: ${fecha}\n\n`;
-
-  juegos.forEach(j => {
-    txt += `🎮 ${j}\n`;
-  });
-
-  txt += `\n💰 ${promo}\n`;
-  txt += `💵 Total: $${total}\n`;
-
-  return txt;
-}
-
-  const numeroPedido = "GC-" + Date.now().toString().slice(-6);
-  const fecha = new Date().toLocaleString();
-
-  const juegos = Array.from(juegosSeleccionados.values());
-  const cantidad = juegos.length;
-
-  let total = cantidad * 5000;
-  let promo = "Sin promo";
-  let ahorro = 0;
-
-  if (cantidad >= 10) {
-    total = 25000;
-    promo = "Promo 10 juegos";
-    ahorro = (cantidad * 5000) - total;
-  } else if (cantidad >= 3) {
-    total = 12000;
-    promo = "Promo 3 juegos";
-    ahorro = (cantidad * 5000) - total;
-  }
-
-  let txt = `🎮 *Pedido GamerClub*\n\n`;
-
-  txt += `🧾 Pedido: ${numeroPedido}\n`;
-  txt += `📅 Fecha: ${fecha}\n`;
-  txt += `💳 Pago: Transferencia\n\n`;
-
-  txt += `📊 Cantidad: ${cantidad}\n`;
-  txt += `🔥 Promo: ${promo}\n`;
-  txt += `💸 Ahorro: $${ahorro}\n`;
-  txt += `💰 Total: $${total}\n\n`;
-
-  txt += `🕹️ Juegos:\n`;
-  juegos.forEach(j => {
-    txt += `- ${j}\n`;
-  });
-
-  txt += `\n👤 Cliente: (completar)\n`;
-
-  return txt;
-}
-
-// ===== MENSAJE =====
-function generarNumeroPedido() {
-  const fecha = new Date();
-  return "GC-" + fecha.getTime().toString().slice(-6);
-}
-
-function obtenerHora() {
-  const ahora = new Date();
-  return ahora.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-}
-
-  let pedido = generarNumeroPedido();
-  let cantidad = juegosSeleccionados.size;
-
-  let nombre = document.getElementById("nombreCliente")?.value || "Sin nombre";
-
-  let mensaje = `🧾 Pedido GamerClub\n`;
-  mensaje += `📦 Pedido: #${pedido}\n`;
-  mensaje += `👤 Cliente: ${nombre}\n`;
-  mensaje += `🕒 Hora: ${obtenerHora()}\n`;
-  mensaje += `💳 Pago: Transferencia\n\n`;
-
-  juegosSeleccionados.forEach((nombreJuego) => {
-    mensaje += `🎮 ${nombreJuego}\n`;
-  });
-
-  let total = 0;
-  let promo = "";
 
   if (cantidad >= 10) {
     total = 25000;
     promo = "🔥 Promo 10 juegos";
+    ahorro = (cantidad * 5000) - total;
   } else if (cantidad >= 3) {
     total = 12000;
     promo = "🔥 Promo 3 juegos";
-  } else {
-    total = cantidad * 5000;
-    promo = "Compra individual";
+    ahorro = (cantidad * 5000) - total;
   }
 
-  let ahorro = (cantidad * 5000) - total;
+  let mensaje = `🧾 Pedido GamerClub\n\n`;
+  mensaje += `📦 Pedido: ${numeroPedido}\n`;
+  mensaje += `📅 Fecha: ${fecha}\n\n`;
+
+  juegos.forEach(j => {
+    mensaje += `🎮 ${j}\n`;
+  });
 
   mensaje += `\n📊 Cantidad: ${cantidad}\n`;
   mensaje += `💰 ${promo}\n`;
