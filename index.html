@@ -1911,8 +1911,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       } catch (err) { window.prompt("Copia manualmente:", text); }
   }
 
+function generarMensaje() {
+
   if (juegosSeleccionados.size === 0) {
     return "Hola! Quiero comprar juegos pero aún no seleccioné ninguno.";
+  }
+
+  const numeroPedido = "GC-" + Date.now().toString().slice(-6);
+  const fecha = new Date().toLocaleString();
+
+  const juegos = Array.from(juegosSeleccionados.values());
+  const cantidad = juegos.length;
+
+  let total = cantidad * 5000;
+  let promo = "Sin promo";
+  let ahorro = 0;
+
+  if (cantidad >= 10) {
+    total = 25000;
+    promo = "Promo 10 juegos";
+    ahorro = (cantidad * 5000) - total;
+  } else if (cantidad >= 3) {
+    total = 12000;
+    promo = "Promo 3 juegos";
+    ahorro = (cantidad * 5000) - total;
+  }
+
+  let txt = `🎮 Pedido GamerClub\n\n`;
+  txt += `📦 Pedido: ${numeroPedido}\n`;
+  txt += `📅 Fecha: ${fecha}\n\n`;
+
+  juegos.forEach(j => {
+    txt += `🎮 ${j}\n`;
+  });
+
+  txt += `\n💰 ${promo}\n`;
+  txt += `💵 Total: $${total}\n`;
+
+  return txt;
+}
   }
 
   const numeroPedido = "GC-" + Date.now().toString().slice(-6);
