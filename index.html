@@ -1958,8 +1958,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   return txt;
 }
       
-      const encodedMsg = encodeURIComponent(txt);
+   function enviarWhatsApp() {
+  const mensaje = generarMensaje(); // 👈 genera todo
+  const numero = "5491170813030";
 
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+ 
 document.getElementById('btn-open-wa').href =
   `https://api.whatsapp.com/send?phone=${TU_NUMERO_WA}&text=${encodedMsg}`;
 
