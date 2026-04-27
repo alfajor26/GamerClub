@@ -1890,35 +1890,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       countSpan.innerText = count;
       document.getElementById('checkout-text').innerHTML = obtenerMensajeUpsell(count, currentLang, false);
   }
-
-  // =======================================================
-  // 6. UTILS Y EVENT LISTENERS
-  // =======================================================
-  function copiarAppID(appid, e) {
-      if (e) e.stopPropagation();
-      const msg = dict[currentLang].toast_appid;
-      if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(appid).then(() => toast(msg)).catch(() => fallbackCopiar(appid, msg));
-      } else { fallbackCopiar(appid, msg); }
-  }
-
-  function fallbackCopiar(text, msg) {
-      try {
-          const t = document.createElement("textarea"); t.value = text;
-          t.style.position = "fixed"; t.style.opacity = "0";
-          document.body.appendChild(t); t.focus(); t.select();
-          document.execCommand('copy'); document.body.removeChild(t); toast(msg);
-      } catch (err) { window.prompt("Copia manualmente:", text); }
-  }
+// ===== MENSAJE =====
 function generarMensaje() {
-
   if (juegosSeleccionados.size === 0) {
     return "Hola! No seleccionaste juegos.";
   }
 
   const numeroPedido = "GC-" + Date.now().toString().slice(-6);
   const fecha = new Date().toLocaleString();
-
   const juegos = Array.from(juegosSeleccionados.values());
   const cantidad = juegos.length;
 
@@ -1958,60 +1937,6 @@ function generarMensaje() {
 }
 
 // ===== WHATSAPP =====
- 
-
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
-
-// ===== INSTAGRAM =====
-function enviarInstagram() {
-
-
-  navigator.clipboard.writeText(mensaje);
-  alert("Mensaje copiado 👌 Pegalo en Instagram");
-
-  window.open("https://www.instagram.com/direct/inbox/", "_blank");
-
-// ===== MENSAJE =====
-function generarMensaje() {
-  if (juegosSeleccionados.size === 0) {
-    return "Hola! No seleccioné juegos todavía.";
-  }
-
-  const numeroPedido = "GC-" + Date.now().toString().slice(-6);
-  const fecha = new Date().toLocaleString();
-  const juegos = Array.from(juegosSeleccionados.values());
-  const cantidad = juegos.length;
-
-  let total = cantidad * 5000;
-  let promo = "Compra individual";
-
-  if (cantidad >= 10) {
-    total = 25000;
-    promo = "🔥 Promo 10 juegos";
-  } else if (cantidad >= 3) {
-    total = 12000;
-    promo = "🔥 Promo 3 juegos";
-  }
-
-  let mensaje = `🧾 Pedido GamerClub\n\n`;
-  mensaje += `📦 Pedido: ${numeroPedido}\n`;
-  mensaje += `📅 Fecha: ${fecha}\n\n`;
-
-  juegos.forEach(j => {
-    mensaje += `🎮 ${j}\n`;
-  });
-
-  mensaje += `\n📊 Cantidad: ${cantidad}\n`;
-  mensaje += `💰 ${promo}\n`;
-  mensaje += `💵 Total: $${total}\n`;
-
-  mensaje += `\n💬 Espero confirmación. Gracias!`;
-
-  return mensaje;
-}
-
-// ===== WHATSAPP =====
 function enviarWhatsApp() {
   const mensaje = generarMensaje();
   const numero = "5491170813030";
@@ -2029,4 +1954,3 @@ function enviarInstagram() {
 
   window.open("https://www.instagram.com/direct/inbox/", "_blank");
 }
-</script>
