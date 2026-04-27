@@ -1916,8 +1916,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       juegosSeleccionados.forEach((nombre) => { txt += `- ${nombre}\n`; });
       
       const encodedMsg = encodeURIComponent(txt);
-      document.getElementById('btn-open-wa').href = `https://api.whatsapp.com/send?phone=${TU_NUMERO_WA}&text=${encodedMsg}; document.getElementById('btn-open-ig').href = https://ig.me/m/${TU_USUARIO_IG};
-      document.getElementById('btn-open-ig').href = `https://ig.me/m/${TU_USUARIO_IG}`;
+
+document.getElementById('btn-open-wa').href =
+  `https://api.whatsapp.com/send?phone=${TU_NUMERO_WA}&text=${encodedMsg}`;
+
+document.getElementById('btn-open-ig').href =
+  `https://ig.me/m/${TU_USUARIO_IG}`;
       
       if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(txt).then(() => document.getElementById('modal-conversion').classList.add('show'))
