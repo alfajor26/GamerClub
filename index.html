@@ -1957,14 +1957,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   return txt;
 }
-      
+  <script>    
    function enviarWhatsApp() {
   const mensaje = generarMensaje(); // 👈 genera todo
   const numero = "5491170813030";
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
- 
+    }
+ <script>
 document.getElementById('btn-open-wa').href =
   `https://api.whatsapp.com/send?phone=${TU_NUMERO_WA}&text=${encodedMsg}`;
 
