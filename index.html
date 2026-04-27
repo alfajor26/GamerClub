@@ -1911,8 +1911,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       } catch (err) { window.prompt("Copia manualmente:", text); }
   }
 
- function generarMensaje() {
-
   if (juegosSeleccionados.size === 0) {
     return "Hola! Quiero comprar juegos pero aún no seleccioné ninguno.";
   }
@@ -1969,7 +1967,6 @@ function obtenerHora() {
   return ahora.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
-function generarMensaje() {
   let pedido = generarNumeroPedido();
   let cantidad = juegosSeleccionados.size;
 
@@ -2015,6 +2012,62 @@ function generarMensaje() {
 }
 
 // ===== WHATSAPP =====
+ 
+
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+}
+
+// ===== INSTAGRAM =====
+function enviarInstagram() {
+
+
+  navigator.clipboard.writeText(mensaje);
+  alert("Mensaje copiado 👌 Pegalo en Instagram");
+
+  window.open("https://www.instagram.com/direct/inbox/", "_blank");
+}<script>
+
+// ===== MENSAJE =====
+function generarMensaje() {
+  if (juegosSeleccionados.size === 0) {
+    return "Hola! No seleccioné juegos todavía.";
+  }
+
+  const numeroPedido = "GC-" + Date.now().toString().slice(-6);
+  const fecha = new Date().toLocaleString();
+  const juegos = Array.from(juegosSeleccionados.values());
+  const cantidad = juegos.length;
+
+  let total = cantidad * 5000;
+  let promo = "Compra individual";
+
+  if (cantidad >= 10) {
+    total = 25000;
+    promo = "🔥 Promo 10 juegos";
+  } else if (cantidad >= 3) {
+    total = 12000;
+    promo = "🔥 Promo 3 juegos";
+  }
+
+  let mensaje = `🧾 Pedido GamerClub\n\n`;
+  mensaje += `📦 Pedido: ${numeroPedido}\n`;
+  mensaje += `📅 Fecha: ${fecha}\n\n`;
+
+  juegos.forEach(j => {
+    mensaje += `🎮 ${j}\n`;
+  });
+
+  mensaje += `\n📊 Cantidad: ${cantidad}\n`;
+  mensaje += `💰 ${promo}\n`;
+  mensaje += `💵 Total: $${total}\n`;
+
+  mensaje += `\n💬 Espero confirmación. Gracias!`;
+
+  return mensaje;
+}
+
+// ===== WHATSAPP =====
 function enviarWhatsApp() {
   const mensaje = generarMensaje();
   const numero = "5491170813030";
@@ -2033,4 +2086,5 @@ function enviarInstagram() {
   window.open("https://www.instagram.com/direct/inbox/", "_blank");
 }
 
+</script>
 </script>
