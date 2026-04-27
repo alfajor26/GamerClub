@@ -44,7 +44,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
   <head>
   <link rel="stylesheet" href="style.css?v=2">
-  </head>
   <style>
     :root {
       /* Paleta Cyberpunk / Premium */
@@ -207,7 +206,7 @@
       overflow: hidden; display: flex; flex-direction: column; position: relative;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       animation: fadeIn 0.4s ease both; user-select: none;
-    }
+    
     
     .card.vendible { cursor: pointer; }
     .card.vendible:hover:not(.selected) { transform: translateY(-5px); background: var(--surface-hover); border-color: rgba(255,255,255,0.3); }
@@ -215,7 +214,7 @@
     .card.selected {
       border-color: var(--accent); transform: translateY(-5px); background: rgba(0, 229, 255, 0.05);
       box-shadow: 0 10px 30px rgba(0,229,255,0.2), 0 0 0 1px var(--accent);
-    }
+    
     
     .card.no-disponible { cursor: not-allowed; opacity: 0.65; }
     .card.no-disponible:hover { border-color: var(--border); transform: none; }
@@ -230,7 +229,7 @@
     .check-overlay {
       position: absolute; inset: 0; background: rgba(0, 229, 255, 0.2); z-index: 5;
       display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s;
-    }
+    
     .card.selected .check-overlay { opacity: 1; }
     .check-circle { background: var(--accent); color: #000; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); transform: scale(0.5); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .card.selected .check-circle { transform: scale(1); }
@@ -263,7 +262,7 @@
       display: flex; justify-content: space-between; align-items: center; z-index: 1000;
       transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       box-shadow: 0 -10px 40px rgba(0,0,0,0.6); flex-wrap: wrap; gap: 10px;
-    }
+
     .checkout-bar.visible { transform: translateY(0); }
     .checkout-info { display: flex; flex-direction: column; gap: 4px; flex: 1 1 auto; }
     .checkout-upsell { font-size: 1.1rem; color: var(--text); }
@@ -354,7 +353,6 @@
       body { padding-bottom: 140px; }
       #scrollTop { bottom: 120px; }
       .toast { bottom: 120px; width: 90%; text-align: center; }
-    }
   </style>
 </head>
 <body>
@@ -1880,12 +1878,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       bar.classList.add('visible');
       countSpan.innerText = count;
       document.getElementById('checkout-text').innerHTML = obtenerMensajeUpsell(count, currentLang, false);
-  }
-// ===== MENSAJE =====
-function generarMensaje() {
-  if (juegosSeleccionados.size === 0) {
-    return "Hola! No seleccionaste juegos.";
-  }
+
 
   const numeroPedido = "GC-" + Date.now().toString().slice(-6);
   const fecha = new Date().toLocaleString();
@@ -1939,7 +1932,7 @@ function enviarWhatsApp() {
 // ===== INSTAGRAM =====
 function enviarInstagram() {
   const mensaje = generarMensaje();
-
+}
   navigator.clipboard.writeText(mensaje);
   alert("Mensaje copiado 👌 Pegalo en Instagram");
 
