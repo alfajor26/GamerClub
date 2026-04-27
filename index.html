@@ -2199,22 +2199,4 @@ function generarMensaje() {
 
   return mensaje;
 }
-<script>
-function enviarWhatsApp() {
-  try {
-    const mensaje = generarMensaje();
-    const numero = "5491170813030";
-
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, "_blank");
-
-    if (typeof cerrarModalConversion === "function") {
-      cerrarModalConversion();
-    }
-
-  } catch (error) {
-    console.error("Error en WhatsApp:", error);
-  }
-}
-</script>
 </body></html>
