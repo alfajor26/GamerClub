@@ -1,503 +1,180 @@
-<html lang="es"><head>
- <link rel="stylesheet" href="style.css?v=2">
+<!DOCTYPE html>
+<html lang="es">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title id="page-title">GC STORE — Catálogo Premium</title>
-  <meta name="description" id="meta-desc" content="Juegos a $5.000. Compra rápida y segura.">
-  
+
+  <title>GC STORE — Catálogo Premium</title>
+  <meta name="description" content="Juegos a $5.000. Compra rápida y segura.">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gamerclubstore.github.io/GamerClub/">
-  <meta property="og:title" content="GamerClub Store">
-  <meta property="og:description" content="Compra juegos digitales al mejor precio">
-  <meta property="og:image" content="URL-DE-UNA-IMAGEN">
-  <meta property="og:title" id="og-title" content="GamerClub — Catálogo Premium">
-  <meta property="og:description" id="og-desc" content="Juegos a $5.000. Compra rápida y segura.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop"> 
-  
+  <meta property="og:title" content="GamerClub — Catálogo Premium">
+  <meta property="og:description" content="Juegos a $5.000. Compra rápida y segura.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop">
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="tw-title" content="GamerClub — Catálogo Premium">
-  <meta name="twitter:description" id="tw-desc" content="Juegos a $5.000. Compra rápida y segura.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
+  <meta name="twitter:title" content="GamerClub — Catálogo Premium">
+  <meta name="twitter:description" content="Juegos a $5.000. Compra rápida y segura.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop">
 
-  <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXXX"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', 'XXXXXXXXXXXXXXX');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"/></noscript>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
-  <head>
-  <link rel="stylesheet" href="style.css?v=2">
+
+  <!-- CSS -->
   <style>
     :root {
-      /* Paleta Cyberpunk / Premium */
-      --bg:           #14002a;
-      --surface:      transparent;
-      --surface-hover:rgba(70, 0, 130, 0.85);
-      --surface2:     rgba(255, 255, 255, 0.03);
-      --border:       rgba(255, 255, 255, 0.1);
-      --accent:       #a855f7;
-      --accent-dark:  #6d28d9;
-      --accent-gold:  #ffb800;
-      --accent-purple:#c084fc;
-      --danger:       #ff3a3a;
-      --warning:      #f0a500;
-      --success:      #00e676;
-      --text:         #f5f3ff;
-      --text-dim:     #c4b5fd;
-      --text-mute:    #475569;
-      --glow-cyan:    rgba(168, 85, 247, 0.4);
-      --glow-gold:    rgba(255, 184, 0, 0.25);
-      --glow-purple:  rgba(176, 0, 255, 0.25);
-      --ig-gradient:  linear-gradient(45deg, #7a00ff, #c084fc, #9333ea);
-      --whatsapp:     #25D366;
+      --bg:#14002a;
+      --surface:transparent;
+      --surface-hover:rgba(70,0,130,.85);
+      --border:rgba(255,255,255,.1);
+      --accent:#a855f7;
+      --text:#f5f3ff;
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *{margin:0;padding:0;box-sizing:border-box;}
 
-   body {
-  background: 
-    radial-gradient(circle at top, rgba(50, 0, 100, 0.10), transparent 60%),
-    linear-gradient(180deg, #0d001a 0%, #020003 100%) !important;
-
-}
-      section, div {
-  background-color: transparent
-}
-      body {
-  background: linear-gradient(180deg, #14002a, #000000)
-}
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif;
-      min-height: 100vh; overflow-x: hidden; position: relative; padding-bottom: 100px; 
+    body{
+      background:linear-gradient(180deg,#14002a,#000);
+      color:var(--text);
+      font-family:sans-serif;
+      min-height:100vh;
     }
 
-    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
-      outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:radial-gradient(circle at top, rgba(120,0,255,.15),transparent);
+      z-index:-1;
     }
 
-    body::before {
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle 800px at 50% -20%, rgba(120, 0, 255, 0.15), transparent),
-    radial-gradient(circle 600px at 90% 80%, rgba(160, 0, 255, 0.08), transparent);
-  pointer-events: none;
-  z-index: -1;
+    header{
+      text-align:center;
+      padding:30px 20px;
+      border-bottom:1px solid var(--border);
     }
 
-    /* HEADER */
-    header {
-      position: relative; z-index: 10; padding: 40px 24px 20px; text-align: center;
-      backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(0, 119, 255, 0.05) 0%, transparent 100%);
+    .logo{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
     }
 
-    .header-top { max-width: 1400px; margin: 0 auto 15px; display: flex; justify-content: space-between; align-items: center; }
-    
-    .logo { display: inline-flex; align-items: center; gap: 16px; cursor: default; }
-    .logo-icon {
-      width: 52px; height: 52px; background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-      border-radius: 14px; display: flex; align-items: center; justify-content: center;
-      font-size: 28px; box-shadow: 0 0 25px var(--glow-cyan); border: 1px solid rgba(0, 229, 255, 0.4); text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-    h1 {
-      font-family: 'Rajdhani', sans-serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700;
-      letter-spacing: 4px; background: linear-gradient(to bottom right, #ffffff, #8be9fd);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 30px rgba(0, 229, 255, 0.2); margin: 0;
+    .logo img{height:40px;}
+
+    h1{
+      font-size:2rem;
     }
 
-    .lang-btn {
-      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
-      padding: 8px 14px; border-radius: 10px; font-family: 'Inter', sans-serif; font-weight: 600;
-      font-size: 0.9rem; cursor: pointer; transition: all 0.3s;
+    .search-section{
+      margin-top:20px;
     }
-    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* HERO CRO */
-    .hero-cro {
-      max-width: 700px; margin: 0 auto 20px; background: rgba(0, 229, 255, 0.03);
-      border: 1px solid rgba(0, 229, 255, 0.15); border-radius: 16px; overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: fadeIn 0.6s ease forwards;
+    #buscador{
+      width:100%;
+      max-width:400px;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#111;
+      color:#fff;
     }
-    .hero-price-banner {
-      background: linear-gradient(90deg, rgba(0, 119, 255, 0.2), rgba(0, 229, 255, 0.2));
-      padding: 12px 20px; border-bottom: 1px solid rgba(0, 229, 255, 0.1);
-      font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+
+    .grid-wrap{
+      padding:20px;
+      max-width:1200px;
+      margin:auto;
     }
-    .hero-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; text-align: left; }
-    .step-item { display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; }
-    .step-icon { font-size: 1.8rem; background: var(--surface2); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-    .step-text { font-size: 0.85rem; color: var(--text); font-weight: 500; line-height: 1.3; }
 
-    /* BUSCADOR */
-    .search-section { max-width: 680px; margin: 0 auto; padding: 0 20px; }
-    .search-box { position: relative; }
-    .search-box svg { position: absolute; left: 35px; top: 50%; transform: translateY(-50%); color: var(--text-dim); pointer-events: none; transition: color 0.3s; }
-    #buscador { width: 100%; padding: 18px 24px 18px 58px; background: var(--surface2); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 20px; color: #fff; font-size: 1.1rem; outline: none; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-    #buscador:focus { border-color: var(--accent); background: rgba(255, 255, 255, 0.07); box-shadow: 0 0 0 4px var(--glow-cyan); }
-    .search-box:focus-within svg {
-  color: var(--accent);
-}.search-box svg {
-  width: 20px;
-  height: 20px;
-  z-index: 2;
-}#buscador {
-  position: relative;
-  z-index: 1;
-}#buscador:focus {
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-}
-    #buscador::placeholder { color: var(--text-mute); }
-
-    /* FILTROS Y ORDENAMIENTO */
-    .filters-wrap { max-width: 1400px; margin: 0 auto; padding: 25px 20px 10px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; }
-    
-    .filters { 
-      display: flex; gap: 10px; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap;
-      padding-bottom: 5px; -webkit-overflow-scrolling: touch; scrollbar-width: none; 
+    #grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:15px;
     }
-    .filters::-webkit-scrollbar { display: none; }
 
-    .filter-btn { padding: 10px 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 0.9rem; flex-shrink: 0; }
-    .filter-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
-    .filter-btn.active { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--glow-cyan); border-color: var(--accent); }
-    
-    /* Efectos especiales para filtros Destacado/Recomendado */
-    .filter-btn[data-filter="destacados"].active { background: var(--accent-gold); border-color: var(--accent-gold); box-shadow: 0 0 20px var(--glow-gold); }
-    .filter-btn[data-filter="recomendados"].active { background: var(--accent-purple); color: #fff; border-color: var(--accent-purple); box-shadow: 0 0 20px var(--glow-purple); }
-
-    .sort-box { display: flex; gap: 10px; flex-wrap: wrap; }
-    .sort-box select {
-      appearance: none; background: var(--surface); border: 1px solid var(--border); color: var(--text);
-      padding: 10px 35px 10px 15px; border-radius: 12px; font-family: 'Inter', sans-serif; font-weight: 500;
-      font-size: 0.9rem; outline: none; cursor: pointer; transition: all 0.3s;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 10px center;
+    .card{
+      border:1px solid var(--border);
+      border-radius:12px;
+      overflow:hidden;
+      transition:.3s;
+      background:#111;
     }
-    .sort-box select:hover, .sort-box select:focus { border-color: var(--accent); }
-    
-    .counter { text-align: left; font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px; padding: 0 20px; max-width: 1400px; margin: 0 auto 20px; }
-    .counter span { color: var(--accent); font-weight: 700; }
 
-    /* GRID Y TARJETAS */
-    .grid-wrap { max-width: 1400px; margin: 0 auto; padding: 0 20px 40px; }
-    #grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:var(--accent);
+    }
 
-    .card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
-      overflow: hidden; display: flex; flex-direction: column; position: relative;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      animation: fadeIn 0.4s ease both; user-select: none;
-    
-    
-    .card.vendible { cursor: pointer; }
-    .card.vendible:hover:not(.selected) { transform: translateY(-5px); background: var(--surface-hover); border-color: rgba(255,255,255,0.3); }
-    
-    .card.selected {
-      border-color: var(--accent); transform: translateY(-5px); background: rgba(0, 229, 255, 0.05);
-      box-shadow: 0 10px 30px rgba(0,229,255,0.2), 0 0 0 1px var(--accent);
-    
-    
-    .card.no-disponible { cursor: not-allowed; opacity: 0.65; }
-    .card.no-disponible:hover { border-color: var(--border); transform: none; }
+    .card img{
+      width:100%;
+      display:block;
+    }
 
-    .card-img { position: relative; aspect-ratio: 16/7; background: #000; overflow: hidden; }
-    .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s, filter 0.3s; }
-    .card.no-disponible .card-img img { filter: grayscale(100%) opacity(0.8); }
-    .card.vendible:hover .card-img img { transform: scale(1.05); }
+    .card-body{
+      padding:10px;
+    }
 
-    .card-img .overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, var(--bg) 100%); }
-    
-    .check-overlay {
-      position: absolute; inset: 0; background: rgba(0, 229, 255, 0.2); z-index: 5;
-      display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s;
-    
-    .card.selected .check-overlay { opacity: 1; }
-    .check-circle { background: var(--accent); color: #000; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); transform: scale(0.5); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-    .card.selected .check-circle { transform: scale(1); }
+    .card-name{
+      font-weight:bold;
+    }
 
-    /* Tags visuales sobre la imagen */
-    .top-badges { position: absolute; top: 10px; left: 10px; z-index: 6; display: flex; flex-direction: column; gap: 6px; align-items: flex-start;}
-    .badge { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; backdrop-filter: blur(5px); }
-    .badge.destacado { background: rgba(255, 184, 0, 0.8); color: #000; box-shadow: 0 2px 10px rgba(0,0,0,0.5); border: 1px solid #ffe600; }
-    .badge.recomendado { background: rgba(176, 0, 255, 0.8); color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.5); border: 1px solid #d966ff; }
-    
-    .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; z-index: 2; }
-    
-    .cat-text { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 4px; display: block; opacity: 0.8; }
-    .card.no-disponible .cat-text { color: var(--text-mute); }
+    .badge{
+      font-size:.8rem;
+      color:#0f0;
+    }
 
-    .card-name { font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 12px; min-height: 2.4em; transition: color 0.3s; }
-    .card.selected .card-name { color: var(--accent); }
-
-    .card-meta { display: flex; align-items: center; justify-content: space-between; }
-    .badge.ok { background: rgba(0, 230, 118, 0.15); color: var(--success); border: 1px solid rgba(0, 230, 118, 0.3); }
-    .badge.no { background: rgba(240, 165, 0, 0.15); color: var(--warning); border: 1px solid rgba(240, 165, 0, 0.3); }
-    
-    .appid-tag { font-size: 0.7rem; color: var(--text-mute); font-family: monospace; cursor: pointer; transition: color 0.2s, text-decoration 0.2s, background 0.2s; position: relative; z-index: 10; padding: 2px 4px; border-radius: 4px; display: inline-block; }
-    .appid-tag:hover { color: var(--accent); background: rgba(0, 229, 255, 0.1); }
-
-    /* CHECKOUT BAR */
-    .checkout-bar {
-      position: fixed; bottom: 0; left: 0; right: 0; background: rgba(13, 18, 32, 0.95);
-      backdrop-filter: blur(15px); border-top: 1px solid var(--accent); padding: 15px 24px;
-      display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-      transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 -10px 40px rgba(0,0,0,0.6); flex-wrap: wrap; gap: 10px;
-
-    .checkout-bar.visible { transform: translateY(0); }
-    .checkout-info { display: flex; flex-direction: column; gap: 4px; flex: 1 1 auto; }
-    .checkout-upsell { font-size: 1.1rem; color: var(--text); }
-    .checkout-upsell b { color: var(--accent); font-weight: 700; font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; letter-spacing: 0.5px; }
-    .checkout-actions { display: flex; gap: 10px; align-items: center; flex: 0 0 auto; }
-
-    .btn-cart { background: var(--surface2); color: var(--text); border: 1px solid var(--border); padding: 14px 20px; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; font-family: 'Inter', sans-serif; white-space: nowrap; }
-    .btn-cart:hover { border-color: var(--accent); color: var(--accent); background: rgba(0, 229, 255, 0.05); }
-
-    .btn-checkout { background: var(--accent); color: #000; border: none; padding: 14px 28px; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 5px 20px var(--glow-cyan); font-family: 'Inter', sans-serif; white-space: nowrap; }
-    .btn-checkout:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.5); }
-
-    /* MODALES */
-    .conversion-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; backdrop-filter: blur(5px); }
-    .conversion-overlay.show { opacity: 1; pointer-events: all; }
-    .conversion-modal { background: var(--surface); border: 2px solid var(--accent); border-radius: 20px; padding: 30px 20px; text-align: center; width: 90%; max-width: 420px; display: flex; flex-direction: column; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 20px 50px rgba(0, 229, 255, 0.15); }
-    .conversion-overlay.show .conversion-modal { transform: scale(1); }
-    
-    .cart-modal { max-height: 85vh; padding: 25px 20px; text-align: left; }
-    .btn-close-icon { background: none; border: none; color: var(--text-dim); font-size: 1.5rem; cursor: pointer; transition: color 0.2s; line-height: 1; padding: 5px; }
-    .btn-close-icon:hover { color: var(--danger); }
-    
-    .cart-items-list { max-height: 50vh; overflow-y: auto; padding-right: 5px; margin-bottom: 15px; }
-    .cart-items-list::-webkit-scrollbar { width: 6px; }
-    .cart-items-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
-    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; gap: 10px; transition: border-color 0.2s; }
-    .cart-item:hover { border-color: rgba(255, 255, 255, 0.2); }
-    .cart-item-name { font-size: 0.95rem; color: #fff; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .btn-trash { background: none; border: none; font-size: 1.2rem; cursor: pointer; opacity: 0.6; transition: opacity 0.2s, transform 0.2s; flex-shrink: 0; padding: 4px; }
-    .btn-trash:hover { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(255,58,58,0.5)); }
-    .cart-footer { border-top: 1px solid var(--border); padding-top: 15px; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; }
-    .cart-total strong { color: var(--accent); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px; }
-
-    /* ESTILOS DE TOAST */
-    .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--surface-hover); color: var(--accent); padding: 12px 24px; border-radius: 12px; border: 1px solid var(--accent); font-weight: 600; font-size: 0.95rem; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(0, 229, 255, 0.2); }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-    /* BOTONES DE REDES MODAL CONVERSIÓN */
-    .conversion-modal .icon { font-size: 3.5rem; margin-bottom: 10px; text-align: center; }
-    .conversion-modal h2 { font-family: 'Rajdhani', sans-serif; font-size: 1.8rem; color: #fff; margin-bottom: 10px; text-align: center; }
-    .conversion-modal p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.4; margin-bottom: 20px; text-align: center; }
-    .btn-ig-giant, .btn-wa-giant { display: flex; align-items: center; justify-content: center; gap: 10px; color: #fff; text-decoration: none; padding: 15px; border-radius: 12px; font-size: 1.1rem; font-weight: 700; min-height: 50px; width: 100%; transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 10px;}
-    .btn-ig-giant { background: var(--ig-gradient); box-shadow: 0 5px 20px rgba(220, 39, 67, 0.3); }
-    .btn-wa-giant { background: var(--whatsapp); box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3); }
-    .btn-ig-giant:active, .btn-wa-giant:active { transform: scale(0.95); }
-    .btn-ig-giant svg, .btn-wa-giant svg { width: 24px; height: 24px; fill: currentColor; }
-
-    /* ESTADOS DE CARGA Y SCROLL */
-    .state-msg { grid-column: 1 / -1; text-align: center; padding: 80px 20px; }
-    .state-msg .icon { font-size: 4rem; margin-bottom: 20px; opacity: 0.3; filter: drop-shadow(0 0 20px var(--accent)); }
-    .state-msg h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #fff; margin-bottom: 8px; }
-    
-    .loader { text-align: center; padding: 100px; grid-column: 1/-1; display: flex; flex-direction: column; align-items: center; }
-    .spinner { width: 50px; height: 50px; border: 4px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; box-shadow: 0 0 20px var(--glow-cyan); }
-    .loader-text { font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); animation: pulse 1.5s ease infinite; }
-
-    #scrollTop { position: fixed; bottom: 100px; right: 20px; z-index: 99; width: 44px; height: 44px; background: var(--surface2); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transform: translateY(20px); transition: all 0.3s; color: var(--text-dim); }
-    #scrollTop.visible { opacity: 1; transform: translateY(0); }
-    
-    footer { text-align: center; padding: 0 20px 40px; color: var(--text-mute); font-size: 0.8rem; letter-spacing: 1px; }
-
-    @keyframes fadeIn { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-
-    /* --- MOBILE FIRST --- */
-    @media (max-width: 600px) {
-      header { padding: 40px 16px 20px; }
-      .hero-steps { grid-template-columns: 1fr; gap: 10px; padding: 15px; }
-      .step-item { flex-direction: row; text-align: left; background: var(--surface2); padding: 12px; border-radius: 10px; }
-      .step-icon { width: 40px; height: 40px; font-size: 1.3rem; flex-shrink: 0; }
-      .hero-price-banner { font-size: 1.15rem; }
-
-      #grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .card-name { font-size: 0.95rem; min-height: 2.6em; margin-bottom: 8px; }
-      .card-body { padding: 10px; }
-      .card-meta { flex-direction: column; align-items: flex-start; gap: 6px; }
-      .badge { font-size: 0.65rem; padding: 3px 6px; }
-
-      .checkout-bar { padding: 12px; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; border-top-left-radius: 16px; border-top-right-radius: 16px;}
-      .checkout-info { flex: 1 1 100%; text-align: center; }
-      .checkout-upsell { font-size: 0.9rem; line-height: 1.2; }
-      .checkout-upsell b { font-size: 1.1rem; }
-      .checkout-actions { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-      .btn-cart { justify-content: center; padding: 12px 10px; font-size: 0.9rem; }
-      .btn-checkout { justify-content: center; padding: 12px 10px; font-size: 0.9rem; }
-      
-      body { padding-bottom: 140px; }
-      #scrollTop { bottom: 120px; }
-      .toast { bottom: 120px; width: 90%; text-align: center; }
   </style>
 </head>
+
 <body>
 
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header>
-  <div class="header-top">
   <div class="logo">
-  <img src="logo.png" alt="GamerClub">
-  <h1>GamerClub</h1>
-  <link rel="stylesheet" href="style.css?v=2">
-    <button class="lang-btn" id="btn-lang" onclick="toggleLanguage()" aria-label="Cambiar idioma">🇺🇸 USD</button>
+    <img src="logo.png" alt="GamerClub">
+    <h1>GamerClub</h1>
   </div>
-  
-  <div class="hero-cro">
-    <div class="hero-price-banner" data-i18n="hero_banner">🔥 1x $5.000 | 3x $12.000 | 10x $25.000</div>
-    <div class="hero-steps">
-      <div class="step-item">
-        <div class="step-icon">🛒</div>
-        <div class="step-text" data-i18n="step1"><b>1) Elige</b> tus juegos tocando las portadas.</div>
-      </div>
-      <div class="step-item">
-        <div class="step-icon">📲</div>
-        <div class="step-text" data-i18n="step2"><b>2) Genera tu lista</b> abajo.</div>
-      </div>
-      <div class="step-item">
-        <div class="step-icon">⚡</div>
-        <div class="step-text" data-i18n="step3"><b>3) Paga en el chat</b> y recibe tu Key.</div>
-      </div>
-    </div>
-  </div>
-  
+
   <div class="search-section">
-    <div class="search-box">
-      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-        <circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path>
-      </svg>
-      <input type="text" id="buscador" data-i18n-ph="search_placeholder" placeholder="Buscar juego o #AppID..." autocomplete="off">
-    </div>
+    <input type="text" id="buscador" placeholder="Buscar juego...">
   </div>
 </header>
 
-<div class="filters-wrap">
-    <div class="filters" id="filters">
-      <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todos</button>
-      <button class="filter-btn" data-filter="destacados" data-i18n="filter_feat">🔥 Destacados</button>
-      <button class="filter-btn" data-filter="recomendados" data-i18n="filter_rec">⭐ Recomendados</button>
-      <button class="filter-btn" data-filter="vendible" data-i18n="filter_disp">✅ Disponibles</button>
-      <button class="filter-btn" data-filter="no-disponible" data-i18n="filter_nodisp">⏳ Próximamente</button>
-    </div>
-    
-    <div class="sort-box">
-        <select id="catSelect" aria-label="Filtrar por Categoría"><option value="all" data-i18n="cat_all">Todas las Categorías</option><option value="accion">Acción</option><option value="aventura">Aventura</option><option value="carreras">Carreras</option><option value="estrategia">Estrategia</option><option value="historia">Historia</option><option value="mundo_abierto">Mundo Abierto</option><option value="rpg">RPG</option><option value="shooter">Shooter</option><option value="soulslike">Souls-like</option><option value="supervivencia">Supervivencia</option><option value="terror">Terror</option></select>
+<div class="grid-wrap">
+  <div id="grid">
 
-        <select id="sortSelect" aria-label="Ordenar resultados">
-            <option value="default" data-i18n="sort_def">✨ Orden Recomendado</option>
-            <option value="az" data-i18n="sort_az">A - Z (Alfabético)</option>
-            <option value="za" data-i18n="sort_za">Z - A (Alfabético)</option>
-        </select>
+    <div class="card">
+      <img src="https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg">
+      <div class="card-body">
+        <div class="card-name">ELDEN RING</div>
+        <div class="badge">Disponible</div>
+      </div>
     </div>
+
+    <div class="card">
+      <img src="https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg">
+      <div class="card-body">
+        <div class="card-name">Cyberpunk 2077</div>
+        <div class="badge">Disponible</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg">
+      <div class="card-body">
+        <div class="card-name">Resident Evil 4</div>
+        <div class="badge">Disponible</div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<p class="counter" id="counter">Viendo <span>48.925</span> juegos — <span style="color:var(--success)">45.379</span> disponibles · <span style="color:var(--warning)">3546</span> próximamente</p>
-
-<div class="grid-wrap">
-  <div id="grid"><div class="card vendible " id="card-1245620" style="animation-delay: 0ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        <div class="top-badges"><span class="badge destacado">🔥 Destacado</span></div>
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg" alt="ELDEN RING" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">RPG</span>
-              <div class="card-name" title="ELDEN RING">ELDEN RING</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('1245620', event)" title="Copiar">#1245620</span>
-          </div>
-        </div></div><div class="card vendible " id="card-1091500" style="animation-delay: 15ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        <div class="top-badges"><span class="badge destacado">🔥 Destacado</span></div>
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Historia</span>
-              <div class="card-name" title="Cyberpunk 2077">Cyberpunk 2077</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('1091500', event)" title="Copiar">#1091500</span>
-          </div>
-        </div></div><div class="card vendible " id="card-2050650" style="animation-delay: 30ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        <div class="top-badges"><span class="badge destacado">🔥 Destacado</span></div>
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg" alt="Resident Evil 4" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Supervivencia</span>
-              <div class="card-name" title="Resident Evil 4">Resident Evil 4</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('2050650', event)" title="Copiar">#2050650</span>
-          </div>
-        </div></div><div class="card vendible " id="card-2651280" style="animation-delay: 45ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        <div class="top-badges"><span class="badge destacado">🔥 Destacado</span></div>
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/2651280/header.jpg" alt="Marvel's Spider-Man 2" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Mundo Abierto</span>
-              <div class="card-name" title="Marvel's Spider-Man 2">Marvel's Spider-Man 2</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('2651280', event)" title="Copiar">#2651280</span>
-          </div>
-        </div></div><div class="card vendible " id="card-1817070" style="animation-delay: 60ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        <div class="top-badges"><span class="badge destacado">🔥 Destacado</span></div>
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/1817070/header.jpg" alt="Marvel’s Spider-Man Remastered" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Aventura</span>
-              <div class="card-name" title="Marvel’s Spider-Man Remastered">Marvel’s Spider-Man Remastered</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('1817070', event)" title="Copiar">#1817070</span>
+</body>
+</html>
           </div>
         </div></div><div class="card vendible " id="card-1817190" style="animation-delay: 75ms;">
         <div class="check-overlay"><div class="check-circle">✅</div></div>
