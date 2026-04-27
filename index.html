@@ -2018,8 +2018,14 @@ document.getElementById('btn-open-ig').href =
     if (params.has('q')) { queryActual = params.get('q'); document.getElementById('buscador').value = queryActual; }
     cargar();
   });
-</script>
-<script id="btn-todos">
+    function enviarWhatsApp() {
+  const mensaje = generarMensaje();
+  const numero = "5491170813030";
+
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+}
+<script>
 document.querySelectorAll('.filtro-btn').forEach(btn => {
   btn.addEventListener('click', () => {
 
