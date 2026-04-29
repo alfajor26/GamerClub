@@ -1,503 +1,102 @@
-<html lang="es">
-<head>
+<html lang="es"><head>
+ <link rel="stylesheet" href="style.css?v=2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <title id="page-title">GC STORE — Catálogo Premium</title>
   <meta name="description" id="meta-desc" content="Juegos a $5.000. Compra rápida y segura.">
-
-  <link rel="stylesheet" href="style.css?v=2">
-
-  <!-- OG -->
+  
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gamerclubstore.github.io/GamerClub/">
-  <meta property="og:title" content="GamerClub — Catálogo Premium">
-  <meta property="og:description" content="Juegos a $5.000. Compra rápida y segura.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop">
-
-  <!-- Twitter -->
+  <meta property="og:url" content=""https://gamerclubstore.github.io/GamerClub/">
+  <meta property="og:title" content="GamerClub Store">
+  <meta property="og:description" content="Compra juegos digitales al mejor precio">
+  <meta property="og:image" content="URL-DE-UNA-IMAGEN">
+  <meta property="og:title" id="og-title" content="GamerClub — Catálogo Premium">
+  <meta property="og:description" id="og-desc" content="Juegos a $5.000. Compra rápida y segura.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop"> 
+  
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GamerClub — Catálogo Premium">
-  <meta name="twitter:description" content="Juegos a $5.000. Compra rápida y segura.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop">
+  <meta name="twitter:title" id="tw-title" content="GamerClub — Catálogo Premium">
+  <meta name="twitter:description" id="tw-desc" content="Juegos a $5.000. Compra rápida y segura.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
 
-  <!-- Fonts -->
+  <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXXX"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'XXXXXXXXXXXXXXX');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"/></noscript>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
-
+  <head>
+  <link rel="stylesheet" href="style.css?v=2">
+  </head>
   <style>
-    /* SOLO cierro llaves que faltaban */
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: all 0.3s;
-      animation: fadeIn 0.4s ease both;
-      user-select: none;
+    :root {
+      --bg:#14002a;
+      --surface:transparent;
+      --surface-hover:rgba(70, 0, 130, 0.85);
+      --surface2:rgba(255, 255, 255, 0.03);
+      --border:rgba(255, 255, 255, 0.1);
+      --accent:#a855f7;
+      --accent-dark:#6d28d9;
+      --accent-gold:#ffb800;
+      --accent-purple:#c084fc;
+      --danger:#ff3a3a;
+      --warning:#f0a500;
+      --success:#00e676;
+      --text:#f5f3ff;
+      --text-dim:#c4b5fd;
+      --text-mute:#475569;
+      --glow-cyan:rgba(168, 85, 247, 0.4);
+      --glow-gold:rgba(255, 184, 0, 0.25);
+      --glow-purple:rgba(176, 0, 255, 0.25);
+      --ig-gradient:linear-gradient(45deg, #7a00ff, #c084fc, #9333ea);
+      --whatsapp:#25D366;
     }
 
-    .card.selected {
-      border-color: var(--accent);
-      transform: translateY(-5px);
-      background: rgba(0, 229, 255, 0.05);
-      box-shadow: 0 10px 30px rgba(0,229,255,0.2), 0 0 0 1px var(--accent);
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .check-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 229, 255, 0.2);
-      z-index: 5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
+   body {
+  background: 
+    radial-gradient(circle at top, rgba(50, 0, 100, 0.10), transparent 60%),
+    linear-gradient(180deg, #0d001a 0%, #020003 100%) !important;
+}
+}
+}
+}
+}
+}
 
-    .checkout-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(13, 18, 32, 0.95);
-      backdrop-filter: blur(15px);
-      border-top: 1px solid var(--accent);
-      padding: 15px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      transform: translateY(100%);
-      transition: transform 0.4s;
-      box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
-      flex-wrap: wrap;
-      gap: 10px;
+}
+      section, div {
+  background-color: transparent
+}
+      body {
+  background: linear-gradient(180deg, #14002a, #000000)
+}
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif;
+      min-height: 100vh; overflow-x: hidden; position: relative; padding-bottom: 100px; 
     }
   </style>
 </head>
 
-<body>
-
-<header>
-  <div class="header-top">
-    <div class="logo">
-      <img src="logo.png" alt="GamerClub">
-      <h1>GamerClub</h1>
-      <button class="lang-btn" id="btn-lang" onclick="toggleLanguage()">🇺🇸 USD</button>
-    </div>
-  </div>
-
-  <div class="hero-cro">
-    <div class="hero-price-banner">🔥 1x $5.000 | 3x $12.000 | 10x $25.000</div>
-  </div>
-
-  <div class="search-section">
-    <input type="text" id="buscador" placeholder="Buscar juego...">
-  </div>
-</header>
-
-<div class="grid-wrap">
-  <div id="grid">
-    <!-- tus cards quedan igual -->
-  </div>
-</div>
-
-</body>
-</html>
-          <div>
-              <span class="cat-text">Terror</span>
-              <div class="card-name" title="Lethal Company">Lethal Company</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('1966720', event)" title="Copiar">#1966720</span>
-          </div>
-        </div></div><div class="card vendible " id="card-648800" style="animation-delay: 390ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/648800/header.jpg" alt="Raft" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Supervivencia</span>
-              <div class="card-name" title="Raft">Raft</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('648800', event)" title="Copiar">#648800</span>
-          </div>
-        </div></div><div class="card vendible " id="card-400" style="animation-delay: 405ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/400/header.jpg" alt="Portal" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Acción</span>
-              <div class="card-name" title="Portal">Portal</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('400', event)" title="Copiar">#400</span>
-          </div>
-        </div></div><div class="card vendible " id="card-322330" style="animation-delay: 420ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/322330/header.jpg" alt="Don't Starve Together" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Supervivencia</span>
-              <div class="card-name" title="Don't Starve Together">Don't Starve Together</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('322330', event)" title="Copiar">#322330</span>
-          </div>
-        </div></div><div class="card vendible " id="card-239140" style="animation-delay: 435ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/239140/header.jpg" alt="Dying Light" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Mundo Abierto</span>
-              <div class="card-name" title="Dying Light">Dying Light</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('239140', event)" title="Copiar">#239140</span>
-          </div>
-        </div></div><div class="card vendible " id="card-477160" style="animation-delay: 450ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/477160/header.jpg" alt="Human Fall Flat" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Aventura</span>
-              <div class="card-name" title="Human Fall Flat">Human Fall Flat</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('477160', event)" title="Copiar">#477160</span>
-          </div>
-        </div></div><div class="card vendible " id="card-251570" style="animation-delay: 465ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/251570/header.jpg" alt="7 Days to Die" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Supervivencia</span>
-              <div class="card-name" title="7 Days to Die">7 Days to Die</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('251570', event)" title="Copiar">#251570</span>
-          </div>
-        </div></div><div class="card vendible " id="card-1665460" style="animation-delay: 480ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/1665460/header.jpg" alt="eFootball™" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Acción</span>
-              <div class="card-name" title="eFootball™">eFootball™</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('1665460', event)" title="Copiar">#1665460</span>
-          </div>
-        </div></div><div class="card vendible " id="card-814380" style="animation-delay: 495ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/814380/header.jpg" alt="Sekiro™: Shadows Die Twice - GOTY Edition" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Aventura</span>
-              <div class="card-name" title="Sekiro™: Shadows Die Twice - GOTY Edition">Sekiro™: Shadows Die Twice - GOTY Edition</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('814380', event)" title="Copiar">#814380</span>
-          </div>
-        </div></div><div class="card vendible " id="card-1116170" style="animation-delay: 510ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/1116170/header.jpg" alt="CyberCorp" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">RPG</span>
-              <div class="card-name" title="CyberCorp">CyberCorp</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('1116170', event)" title="Copiar">#1116170</span>
-          </div>
-        </div></div><div class="card vendible " id="card-220" style="animation-delay: 525ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/220/header.jpg" alt="Half-Life 2" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Shooter</span>
-              <div class="card-name" title="Half-Life 2">Half-Life 2</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('220', event)" title="Copiar">#220</span>
-          </div>
-        </div></div><div class="card vendible " id="card-1326470" style="animation-delay: 540ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/1326470/header.jpg" alt="Sons Of The Forest" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Supervivencia</span>
-              <div class="card-name" title="Sons Of The Forest">Sons Of The Forest</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('1326470', event)" title="Copiar">#1326470</span>
-          </div>
-        </div></div><div class="card vendible " id="card-219990" style="animation-delay: 555ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/219990/header.jpg" alt="Grim Dawn" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">RPG</span>
-              <div class="card-name" title="Grim Dawn">Grim Dawn</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('219990', event)" title="Copiar">#219990</span>
-          </div>
-        </div></div><div class="card vendible " id="card-255710" style="animation-delay: 570ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/255710/header.jpg" alt="Cities: Skylines" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Estrategia</span>
-              <div class="card-name" title="Cities: Skylines">Cities: Skylines</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('255710', event)" title="Copiar">#255710</span>
-          </div>
-        </div></div><div class="card vendible " id="card-261550" style="animation-delay: 585ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/261550/header.jpg" alt="Mount &amp; Blade II: Bannerlord" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">RPG</span>
-              <div class="card-name" title="Mount &amp; Blade II: Bannerlord">Mount &amp; Blade II: Bannerlord</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('261550', event)" title="Copiar">#261550</span>
-          </div>
-        </div></div><div class="card vendible " id="card-8930" style="animation-delay: 600ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/8930/header.jpg" alt="Sid Meier's Civilization® V" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Estrategia</span>
-              <div class="card-name" title="Sid Meier's Civilization® V">Sid Meier's Civilization® V</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('8930', event)" title="Copiar">#8930</span>
-          </div>
-        </div></div><div class="card vendible " id="card-289070" style="animation-delay: 615ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/289070/header.jpg" alt="Sid Meier’s Civilization® VI" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Estrategia</span>
-              <div class="card-name" title="Sid Meier’s Civilization® VI">Sid Meier’s Civilization® VI</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('289070', event)" title="Copiar">#289070</span>
-          </div>
-        </div></div><div class="card vendible " id="card-377160" style="animation-delay: 630ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/377160/header.jpg" alt="Fallout 4" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Mundo Abierto</span>
-              <div class="card-name" title="Fallout 4">Fallout 4</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('377160', event)" title="Copiar">#377160</span>
-          </div>
-        </div></div><div class="card vendible " id="card-2186680" style="animation-delay: 645ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/2186680/header.jpg" alt="Warhammer 40,000: Rogue Trader" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Mundo Abierto</span>
-              <div class="card-name" title="Warhammer 40,000: Rogue Trader">Warhammer 40,000: Rogue Trader</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('2186680', event)" title="Copiar">#2186680</span>
-          </div>
-        </div></div><div class="card vendible " id="card-526870" style="animation-delay: 660ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/526870/header.jpg" alt="Satisfactory" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Mundo Abierto</span>
-              <div class="card-name" title="Satisfactory">Satisfactory</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('526870', event)" title="Copiar">#526870</span>
-          </div>
-        </div></div><div class="card vendible " id="card-632360" style="animation-delay: 675ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/632360/header.jpg" alt="Risk of Rain 2" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Estrategia</span>
-              <div class="card-name" title="Risk of Rain 2">Risk of Rain 2</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('632360', event)" title="Copiar">#632360</span>
-          </div>
-        </div></div><div class="card vendible " id="card-3164500" style="animation-delay: 690ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/3164500/header.jpg" alt="Schedule I" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Estrategia</span>
-              <div class="card-name" title="Schedule I">Schedule I</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('3164500', event)" title="Copiar">#3164500</span>
-          </div>
-        </div></div><div class="card vendible " id="card-3241660" style="animation-delay: 705ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/3241660/header.jpg" alt="R.E.P.O." loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Terror</span>
-              <div class="card-name" title="R.E.P.O.">R.E.P.O.</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('3241660', event)" title="Copiar">#3241660</span>
-          </div>
-        </div></div><div class="card vendible " id="card-705090" style="animation-delay: 720ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/705090/header.jpg" alt="Trivia Vault: Super Heroes Trivia 2" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Estrategia</span>
-              <div class="card-name" title="Trivia Vault: Super Heroes Trivia 2">Trivia Vault: Super Heroes Trivia 2</div>
-          </div>
-          <div class="card-meta">
-            <span class="badge ok">✅ Disp.</span>
-            <span class="appid-tag" onclick="copiarAppID('705090', event)" title="Copiar">#705090</span>
-          </div>
-        </div></div><div class="card vendible " id="card-1259370" style="animation-delay: 735ms;">
-        <div class="check-overlay"><div class="check-circle">✅</div></div>
-        
-        <div class="card-img">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/1259370/header.jpg" alt="Worm Jazz" loading="lazy" onerror="this.parentElement.innerHTML='&lt;div class=\'img-placeholder\'&gt;&lt;svg width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'&gt;&lt;rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'3\'/&gt;&lt;circle cx=\'9\' cy=\'9\' r=\'2\'/&gt;&lt;path d=\'m21 15-5-5L5 21\'/&gt;&lt;/svg&gt;&lt;/div&gt;'">
-          <div class="overlay"></div>
-        </div>
-        <div class="card-body">
-          <div>
-              <span class="cat-text">Acción</span>
-              <div class="card-name" title="Worm Jazz">Worm Jazz</div>
           </div>
           <div class="card-meta">
             <span class="badge ok">✅ Disp.</span>
@@ -697,7 +296,65 @@
         </div>
     </div>
 </div>
+<style>
+/* GRID Y TARJETAS */
+.grid-wrap { max-width: 1400px; margin: 0 auto; padding: 0 20px 40px; }
+#grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
 
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; display: flex; flex-direction: column; position: relative;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeIn 0.4s ease both; user-select: none;
+}
+
+.card.vendible { cursor: pointer; }
+.card.vendible:hover:not(.selected) { transform: translateY(-5px); background: var(--surface-hover); border-color: rgba(255,255,255,0.3); }
+
+.card.selected {
+  border-color: var(--accent); transform: translateY(-5px); background: rgba(0, 229, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0,229,255,0.2), 0 0 0 1px var(--accent);
+}
+
+.card.no-disponible { cursor: not-allowed; opacity: 0.65; }
+.card.no-disponible:hover { border-color: var(--border); transform: none; }
+
+.card-img { position: relative; aspect-ratio: 16/7; background: #000; overflow: hidden; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s, filter 0.3s; }
+.card.no-disponible .card-img img { filter: grayscale(100%) opacity(0.8); }
+.card.vendible:hover .card-img img { transform: scale(1.05); }
+
+.card-img .overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, var(--bg) 100%); }
+
+.check-overlay {
+  position: absolute; inset: 0; background: rgba(0, 229, 255, 0.2); z-index: 5;
+  display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s;
+}
+.card.selected .check-overlay { opacity: 1; }
+.check-circle { background: var(--accent); color: #000; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); transform: scale(0.5); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.card.selected .check-circle { transform: scale(1); }
+
+/* Tags visuales sobre la imagen */
+.top-badges { position: absolute; top: 10px; left: 10px; z-index: 6; display: flex; flex-direction: column; gap: 6px; align-items: flex-start;}
+.badge { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; backdrop-filter: blur(5px); }
+.badge.destacado { background: rgba(255, 184, 0, 0.8); color: #000; box-shadow: 0 2px 10px rgba(0,0,0,0.5); border: 1px solid #ffe600; }
+.badge.recomendado { background: rgba(176, 0, 255, 0.8); color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.5); border: 1px solid #d966ff; }
+
+.card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; z-index: 2; }
+
+.cat-text { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 4px; display: block; opacity: 0.8; }
+.card.no-disponible .cat-text { color: var(--text-mute); }
+
+.card-name { font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 12px; min-height: 2.4em; transition: color 0.3s; }
+.card.selected .card-name { color: var(--accent); }
+
+.card-meta { display: flex; align-items: center; justify-content: space-between; }
+.badge.ok { background: rgba(0, 230, 118, 0.15); color: var(--success); border: 1px solid rgba(0, 230, 118, 0.3); }
+.badge.no { background: rgba(240, 165, 0, 0.15); color: var(--warning); border: 1px solid rgba(240, 165, 0, 0.3); }
+
+.appid-tag { font-size: 0.7rem; color: var(--text-mute); font-family: monospace; cursor: pointer; transition: color 0.2s, text-decoration 0.2s, background 0.2s; position: relative; z-index: 10; padding: 2px 4px; border-radius: 4px; display: inline-block; }
+.appid-tag:hover { color: var(--accent); background: rgba(0, 229, 255, 0.1); }
+</style>
 <div class="conversion-overlay" id="modal-conversion">
     <div class="conversion-modal">
         <div class="icon">✅</div>
