@@ -53,9 +53,9 @@
 
 .logo-text {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 2.2rem;
-  letter-spacing: 3px;
   font-weight: 700;
+  letter-spacing: 2px;
+}
 
   background: linear-gradient(45deg, #ffffff, #c084fc);
   -webkit-background-clip: text;
