@@ -31,44 +31,59 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
 }
 
-.logo img {
-  height: 120px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.9));
-  transition: 0.3s;
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6d28d9, #a855f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+
+  box-shadow:
+    0 0 20px rgba(168, 85, 247, 0.6),
+    0 0 40px rgba(168, 85, 247, 0.3);
+
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
-.logo img:hover {
-  transform: scale(1.05);
-}
+.logo-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 3px;
+  font-weight: 700;
 
-.logo h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: 5px;
-  margin: 0;
-
-  background: linear-gradient(90deg, #c084fc, #a855f7, #7e22ce);
+  background: linear-gradient(45deg, #ffffff, #c084fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  text-shadow:
-    0 0 10px rgba(168, 85, 247, 0.9),
-    0 0 20px rgba(168, 85, 247, 0.6),
-    0 0 40px rgba(168, 85, 247, 0.4);
-
-  transition: 0.3s;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+.logo:hover .logo-icon {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 30px rgba(168, 85, 247, 0.9),
+    0 0 60px rgba(168, 85, 247, 0.4);
 }
 
-.logo h1:hover {
-  text-shadow:
-    0 0 20px rgba(168, 85, 247, 1),
-    0 0 40px rgba(168, 85, 247, 0.8);
+.logo:hover .logo-text {
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.8);
+}
+
+.logo-icon,
+.logo-text {
+  transition: all 0.3s ease;
+}
+.logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.7));
 }
 
 /* ---------------- SEARCH ---------------- */
