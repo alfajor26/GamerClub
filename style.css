@@ -55,6 +55,12 @@
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
+
+  background: linear-gradient(45deg, #ffffff, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
 }
 
   background: linear-gradient(45deg, #ffffff, #c084fc);
