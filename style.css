@@ -295,4 +295,10 @@ html {
   button {
     width: 100%;
   }
+  .logo img {
+  height: 48px !important;
+  width: auto !important;
+  max-height: 48px !important;
+  object-fit: contain;
+}
 }
