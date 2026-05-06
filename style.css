@@ -101,6 +101,27 @@
   align-items: center;
   gap: 12px;
 }
+.header-top {
+  display: flex;
+  align-items: center; /* 🔥 ESTO ES LA CLAVE */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: auto !important;   /* 🔥 evita que crezca */
+}
+.logo {
+  max-height: 60px !important;
+}
+body, header {
+  height: auto !important;
+}
+.logo {
+  height: fit-content !important;
+}
 /* ---------------- SEARCH ---------------- */
 
 .search-box {
