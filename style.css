@@ -32,95 +32,20 @@
   display: flex;
   align-items: center;
   gap: 14px;
-}
 
-.logo-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #6d28d9, #a855f7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-
-  box-shadow:
-    0 0 20px rgba(168, 85, 247, 0.6),
-    0 0 40px rgba(168, 85, 247, 0.3);
-
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.logo-text {
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  letter-spacing: 2px;
-
-  background: linear-gradient(45deg, #ffffff, #c084fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
-}
-
-  background: linear-gradient(45deg, #ffffff, #c084fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-}
-.logo:hover .logo-icon {
-  transform: scale(1.1);
-  box-shadow:
-    0 0 30px rgba(168, 85, 247, 0.9),
-    0 0 60px rgba(168, 85, 247, 0.4);
-}
-
-.logo:hover .logo-text {
-  text-shadow: 0 0 30px rgba(168, 85, 247, 0.8);
-}
-
-.logo-icon,
-.logo-text {
-  transition: all 0.3s ease;
-}
-.logo-img {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-
-  filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6));
-}
-.logo img {
-  height: 48px;   /* tamaño correcto */
-  width: auto;
-  object-fit: contain;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.header-top {
-  display: flex;
-  align-items: center; /* 🔥 ESTO ES LA CLAVE */
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  height: auto !important;   /* 🔥 evita que crezca */
-}
-.logo {
-  max-height: 60px !important;
-}
-body, header {
+  width: auto !important;
   height: auto !important;
+
+  flex: 0 0 auto !important;
 }
-.logo {
-  height: fit-content !important;
+
+.logo img {
+  width: 140px !important;
+  height: auto !important;
+  max-width: 140px !important;
+
+  object-fit: contain;
+  display: block;
 }
 /* ---------------- SEARCH ---------------- */
 
